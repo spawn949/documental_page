@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <link href="css\styles.css" rel="stylesheet">
+    <title>Documentation page</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+  </head>
+  <body>
+    <nav id="navbar">
+      <header>Tk Hyper Documentation</header>
+      <ul>
+        <li><a href="#Introduction" class="nav-link">Introduction</a></li>
+        <li><a href="#Mag_Local" class="nav-link">Mag Local</a></li>
+        <li><a href="#Mag_Coda" class="nav-link">Mag Coda</a></li>
+        <li><a href="#Mag_MW" class="nav-link">Mag MW</a></li>
+        <li><a href="#Mag_Promedio" class="nav-link">Mag Promedio</a></li>
+        <li><a href="#Sentido" class="nav-link">Sentido</a></li>
+        <li><a href="#Enviar_Correos_a_Sini" class="nav-link">Enviar Correos a Sini</a></li>
+        <li><a href="#Enviar_Correos_a_Todos" class="nav-link">Enviar Correos a Todos</a></li>
+        <li><a href="#Enviar_Datos" class="nav-link">Enviar Datos</a></li>
+      </ul>
+    </nav>
+    
+    <main id="main-doc">
+      <section class="main-section" id="Introduction">
+        <header>Introduction</header>
+        <article>
+          <p>This application parses the data output from the scientific program Seisan.</p>
+          <p>It has two main functions:</p>
+          <ol>
+            <li>Send the last 20 seismic events to the seismology website.</li>
+            <li>Send emails to the people in the seismology list.</li>
+          </ol>
+          <p>It takes this output and transform it in data wich can be understood from visitors giving the activity of the last 20 earthquakes.</p>
+          <p>Internally it uses the geospatial data given by Mr moreta and it has all the poligons wich wraps the political map from the Santo Domingo Island.</p>
+          <p>For calculate if the epicentre is in any poligon it uses the algorithm extrated from "https://sakseiw.wordpress.com"</p>
+ 
+<code>
+   """Comprueba si un punto se encuentra dentro de un polígono
+  def punto_en_poligono(x, y, poligono):
+    i = 0
+    j = len(poligono) - 1
+    salida = False
+    for i in range(len(poligono)):
+        if (poligono[i][1] < y and poligono[j][1] >= y) or (poligono[j][1] < y and poligono[i][1] >= y):
+            if poligono[i][0] + (y - poligono[i][1]) / (poligono[j][1] - poligono[i][1]) * (poligono[j][0] - poligono[i][0]) < x:
+                salida = not salida
+
+        j = i
+    return salida
+</code>
+  
+
+          <p>The interface has the following components wich we will see them in next sections:</p>
+          <ul>
+            <li>Radio buttons</li>
+            <li>Check buttons</li>
+            <li>Button</li>
+          </ul>
+        </article>
+      </section>
+      <section class="main-section" id="Mag_Local">
+        <header>Mag Local</header>
+        <article>
+          <p>This is one of the subcomponents of the adio button component.</p>
+          <p>When this option is marked it will send to the ouput the local magnitud of the event.</p>
+         
+        </article>
+      </section>
+      <section class="main-section" id="Mag_Coda">
+        <header>Mag Coda</header>
+        <article>
+                    <p>This is one of the subcomponents of the adio button component.</p>
+          <p>When this option is marked it will send to the ouput the coda magnitud of the event.</p>
+          
+        </article>
+      </section>
+      <section class="main-section" id="Mag_MW">
+        <header>Mag MW</header>
+        <article>
+          <p>This is one of the subcomponents of the adio button component.</p>
+          <p>When this option is marked it will send to the ouput the mw magnitud of the event.</p>
+        </article>
+      </section>
+      <section class="main-section" id="Mag_Promedio">
+        <header>Mag Promedio</header>
+        <article>
+          <p>This is one of the subcomponents of the adio button component.</p>
+          <p>When this option is marked it will send to the ouput a promedio of the  magnituds of the event.</p>
+        </article>
+      </section>
+      <section class="main-section" id="Sentido">
+        <header>Sentido</header>
+        <article>
+          <p>This one of the options in the check button component.</p>
+          <p>when checked it will send the infomation that this event was feeled by people close to the epicentre.</p>
+          
+        </section>
+        <section class="main-section" id="Enviar_Correos_a_Sini">
+          <header>Enviar Correos a Sini</header>
+          <p>This check button option will send an email to the sini institution.</p>
+          
+        </article>
+      </section>
+      <section class="main-section" id="Enviar_Correos_a_Todos">
+        <header>Enviar Correos a Todos</header>
+        <article>
+          <p>This option will send and email to all people in the email list.</p>
+      </section>
+      <section class="main-section" id="Enviar_Datos">
+        <header>Enviar Datos</header>
+        <article>
+          <p>This option will sends the ouput to the seismology website and and the emails.</p> 
+        </article>
+      </section>
+    </main>
+  </body>
+</html>
